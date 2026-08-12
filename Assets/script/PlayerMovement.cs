@@ -5,10 +5,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 0.15f;
+    public Transform cameraTransform;
 
     private Rigidbody rb;
     private Vector3 movement;
-    private float mouseX;
+
+    private float cameraPitch = 0f;
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // الحركة
         float x = 0f;
         float z = 0f;
 
@@ -30,7 +33,25 @@ public class PlayerMovement : MonoBehaviour
 
         movement = new Vector3(x, 0f, z).normalized;
 
-        mouseX = Mouse.current.delta.ReadValue().x * mouseSensitivity;
+
+        // الماوس
+        Vector2 mouse = Mouse.current.delta.ReadValue();
+
+        float mouseX = mouse.x * mouseSensitivity;
+        float mouseY = mouse.y * mouseSensitivity;
+
+
+        // يمين ويسار - اللاعب نفسه
+        transform.Rotate(0f, mouseX, 0f);
+
+
+        // فوق وتحت - الكاميرا
+        cameraPitch -= mouseY;
+
+        cameraPitch = Mathf.Clamp(cameraPitch, -80f, 80f);
+
+        cameraTransform.localRotation =
+            Quaternion.Euler(cameraPitch, 0f, 0f);
     }
 
     void FixedUpdate()
@@ -40,12 +61,8 @@ public class PlayerMovement : MonoBehaviour
             transform.right * movement.x;
 
         rb.MovePosition(
-            rb.position + moveDirection * speed * Time.fixedDeltaTime
+            rb.position +
+            moveDirection * speed * Time.fixedDeltaTime
         );
-
-        Quaternion rotation =
-            Quaternion.Euler(0f, mouseX, 0f);
-
-        rb.MoveRotation(rb.rotation * rotation);
     }
 }

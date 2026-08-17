@@ -1526,6 +1526,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableInfo
   itemID: GoldFlower
+--- !u!114 &168998841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168998834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40ea8ac8a7b83f49b76ab477c8b3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: Candellvl2
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &173600516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 795165706614100933, guid: c863f656782d099438e2f1ba789301c8, type: 3}
@@ -6244,6 +6259,11 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   correctSound: {fileID: 0}
   wrongSound: {fileID: 0}
+  heldItem: {fileID: 0}
+  currentItemInRange: {fileID: 0}
+  isPlayerNearBook: 0
+  isPlayerNearStatue: 0
+  placedItemOnStatue: {fileID: 0}
 --- !u!1001 &599458024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6817,7 +6837,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: 90fcdcf69946b9647a6f910e748de113, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1171873357}
   m_SourcePrefab: {fileID: 100100000, guid: 90fcdcf69946b9647a6f910e748de113, type: 3}
 --- !u!1 &616792892
 GameObject:
@@ -7445,7 +7468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4543811389953408306, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
       propertyPath: m_Name
-      value: candellvl2
+      value: Candellvl2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543811389953408306, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 7723645962826471498, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
       propertyPath: m_Intensity
@@ -7513,6 +7540,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4543811389953408306, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 168998839}
+    - targetCorrespondingSourceObject: {fileID: 4543811389953408306, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 168998841}
   m_SourcePrefab: {fileID: 100100000, guid: 42f90a8439ee0bc4a98cca17e12b368a, type: 3}
 --- !u!1001 &669685988
 PrefabInstance:
@@ -8126,6 +8156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rust_key
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8139,6 +8173,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 699870890}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 699870894}
   m_SourcePrefab: {fileID: 100100000, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
 --- !u!65 &699870886
 BoxCollider:
@@ -8183,8 +8220,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8201,6 +8238,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableInfo
   itemID: key
+--- !u!114 &699870894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348997880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40ea8ac8a7b83f49b76ab477c8b3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: rust_key
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &702286227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10678,7 +10730,7 @@ GameObject:
   - component: {fileID: 918508458}
   - component: {fileID: 918508457}
   m_Layer: 0
-  m_Name: door
+  m_Name: doorlv2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10693,7 +10745,7 @@ Transform:
   m_GameObject: {fileID: 918508455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1459, y: 8.78, z: -33.974}
+  m_LocalPosition: {x: 0.1459, y: 1.37, z: -33.974}
   m_LocalScale: {x: 1.9845365, y: 3.2457721, z: 0.23976657}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14337,6 +14389,32 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2041259129983949688, guid: bcc66fb6042b14d46bc9d27fa37aae9b, type: 3}
+--- !u!1 &1171873352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 90fcdcf69946b9647a6f910e748de113, type: 3}
+  m_PrefabInstance: {fileID: 616538608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1171873357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171873352}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 231.75687, y: 64.6686, z: 233.30994}
+  m_Center: {x: -9.878277, y: 31.742474, z: 5.5719376}
 --- !u!1001 &1174141083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17327,7 +17405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6660161781806858058, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.47
+      value: -26.6
       objectReference: {fileID: 0}
     - target: {fileID: 6660161781806858058, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17387,6 +17465,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1202393783661006637, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 593917874}
+    - targetCorrespondingSourceObject: {fileID: 4860850051015695442, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1811689815}
   m_SourcePrefab: {fileID: 100100000, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
 --- !u!1 &1292535540
 GameObject:
@@ -19792,6 +19873,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1403458696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403458688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40ea8ac8a7b83f49b76ab477c8b3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: PotionLV2
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1413731522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21893,6 +21989,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
   raiseHeight: 5
   speed: 2
+  isOpening: 0
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1565361874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23349,6 +23447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662819611}
   - component: {fileID: 1662819612}
+  - component: {fileID: 1662819613}
   m_Layer: 0
   m_Name: PuzzlePlace
   m_TagString: Statue
@@ -23365,7 +23464,7 @@ Transform:
   m_GameObject: {fileID: 1662819610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.489, y: 0.64, z: -22.818}
+  m_LocalPosition: {x: 1.96, y: 0.55, z: -22.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23390,8 +23489,24 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1662819613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662819610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74f914a354c36046a41cc36d548a2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeliverySpot
+  correctItemName: Candellvl2
+  doorToOpen: {fileID: 918508455}
+  doorOpenHeight: 5
+  doorSpeed: 2
 --- !u!1 &1662829259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 795165706614100933, guid: c863f656782d099438e2f1ba789301c8, type: 3}
@@ -24033,7 +24148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220934241292132250, guid: a55e8b944b49e774899ecb13192840e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4824
+      value: 1.5267236
       objectReference: {fileID: 0}
     - target: {fileID: 4220934241292132250, guid: a55e8b944b49e774899ecb13192840e5, type: 3}
       propertyPath: m_LocalScale.z
@@ -26137,6 +26252,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6788037653591411210, guid: 56351ca12b627de41b48b41f8ba47ebc, type: 3}
+--- !u!1 &1811689811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4860850051015695442, guid: 1d0dff72acf1b4d4fad12a925f0e04e3, type: 3}
+  m_PrefabInstance: {fileID: 1284920329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1811689815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811689811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d9d93541def3e4ba36682e2545294f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPicker
 --- !u!1001 &1822640853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27513,6 +27645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PotionLV2
       objectReference: {fileID: 0}
+    - target: {fileID: 7859597006823311159, guid: 4787ffb990491f1489575e4d09a0860a, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27523,6 +27659,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7859597006823311159, guid: 4787ffb990491f1489575e4d09a0860a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1403458694}
+    - targetCorrespondingSourceObject: {fileID: 7859597006823311159, guid: 4787ffb990491f1489575e4d09a0860a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1403458696}
   m_SourcePrefab: {fileID: 100100000, guid: 4787ffb990491f1489575e4d09a0860a, type: 3}
 --- !u!1 &1931519572
 GameObject:

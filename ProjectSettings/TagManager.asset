@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Statue
+  - Item
   layers:
   - Default
   - TransparentFX

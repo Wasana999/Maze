@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -7,10 +8,12 @@ public class Door : MonoBehaviour
 
     private Vector3 openPosition;
     private bool isOpening = false;
+    [SerializeField] private GameObject doorText;
 
     void Start()
     {
         openPosition = transform.position + Vector3.up * openHeight;
+        doorText.SetActive(false);
     }
 
     void Update()
@@ -21,7 +24,9 @@ public class Door : MonoBehaviour
                 transform.position,
                 openPosition,
                 speed * Time.deltaTime
+               
             );
+            doorText.SetActive(true);
         }
     }
 

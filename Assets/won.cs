@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class ButtonPuzzle : MonoBehaviour
+public class won : MonoBehaviour
 {
-    public Door door;
-public GameObject text;
 public GameObject win;
 
     private bool playerNear = false;
@@ -12,9 +10,9 @@ public GameObject win;
     {
         if (playerNear && Input.GetKeyDown(KeyCode.E))
         {
-            door.OpenDoor();
-            text.SetActive(false); 
                         win.SetActive(true); 
+                        Cursor.lockState = CursorLockMode.None; // تحرير الماوس من منتصف الشاشة
+        Cursor.visible = true;
 
                    }
     }
@@ -36,3 +34,5 @@ public GameObject win;
         }
     }
 }
+
+
